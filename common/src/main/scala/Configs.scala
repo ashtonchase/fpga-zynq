@@ -38,7 +38,14 @@ class WithSmallCores extends Config(
     case _ => throw new CDEMatchError
   })
 
+
 class ZynqConfig extends Config(new WithZynqAdapter ++ new DefaultFPGAConfig)
+class ZynqRoccConfig extends Config(new WithZynqAdapter ++ new DefaultFPGARoccConfig)
+class ZynqL2Config extends Config(new WithZynqAdapter ++ new DefaultFPGASmallL2Config)
+class ZynqMaxL2Config extends Config(new WithZynqAdapter ++ new DefaultFPGAMaxL2Config)
+class ZynqDualCoreConfig extends Config(new WithZynqAdapter ++ new DefaultFPGADualCoreConfig)
+
+
 class ZynqSmallConfig extends Config(new WithSmallCores ++ new ZynqConfig)
 
 class WithIntegrationTest extends Config(
